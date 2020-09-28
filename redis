@@ -11,7 +11,7 @@ spec:
     protocol: TCP
     port: 6379
     targetPort: 6379
-    nodePort: 6384
+    nodePort: 6388
   selector:
     app: redis
   type: NodePort
@@ -30,7 +30,7 @@ metadata:
   labels:
     app: redis
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: redis
