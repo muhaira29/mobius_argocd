@@ -13,7 +13,7 @@ pipeline {
                 doGenerateSubmoduleConfigurations: false,
                 submoduleCfg: [],
                 userRemoteConfigs: [[
-                    url: 'ssh:\\git@github.com:muhaira29/mobius_argocd.git']]
+                    url: 'https://github.com/muhaira29/mobius_argocd.git']]
                 ])
             }
         }
@@ -30,7 +30,7 @@ pipeline {
         
         stage ('Deploy_K8S') {
              steps {
-                     withCredentials([string(credentialsId: "jenkins-argocd-deploy", variable: 'ARGOCD_AUTH_TOKEN')]) {
+                     # withCredentials([string(credentialsId: "jenkins-argocd-deploy", variable: 'ARGOCD_AUTH_TOKEN')]) {
                         sh '''
                         ARGOCD_SERVER="https://172.16.29.22:4261/"
                         APP_NAME="test-argocd"
